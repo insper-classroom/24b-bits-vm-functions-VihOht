@@ -7,3 +7,6 @@ push temp 0
 push temp 1
 call mult 2
 pop temp 2
+
+label loop
+goto loop

@@ -80,11 +80,13 @@ def test_div_0():
 @pytest.mark.telemetry_files(source("2-div/div.vm"))
 def test_div_15_5():
     ram = init_ram()
-    ram[TEMP[0]] = 6
-    ram[TEMP[1]] = 3
-    val = 6 // 3
+    ram[TEMP[0]] = 15
+    ram[TEMP[1]] = 5
+    val = 15 // 5
     tst = {SP: STACK, TEMP[2]: val}
     assert vm_test("2-div", ram, tst, 50000)
+    
+    # Professor, I will change the values form 6 // 3 to 15 // 5!!
 
 
 
