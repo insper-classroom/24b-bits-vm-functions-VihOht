@@ -1,0 +1,46 @@
+function div 2
+    // local[0] = resultado
+    // local[1] = resto
+    // a / b = local[0]
+
+    push constant 0 
+    pop local 0
+    push argument 0
+    pop local 1
+    // local[1] = a
+
+
+    push argument 1
+    push constant 0
+    eq
+    if-goto zero
+    // if b == 0 goto zero
+
+    label loop
+    push local 1
+    push argument 1
+    lt
+    if-goto end
+    // local[1] < b goto end
+
+    push local 0
+    push constant 1
+    add
+    pop local 0
+    // local[0] += 1
+
+    push local 1
+    push argument 1
+    sub
+    pop local 1
+    // local[1] -= b
+
+    goto loop
+
+    label end
+    push local 0
+    return
+
+    label zero
+    push constant 0
+    return
